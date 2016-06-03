@@ -28,11 +28,11 @@ member([H|T], E) ->
 % L = [{Item, Count}, ...]
 cost([]) -> 0;
 cost([{Item, Count} | T]) -> 
-	case Item of 
-		apple -> CurCost = 100;
-		pear -> CurCost = 150;
-		milk -> CurCost = 70;
-		beef -> CurCost = 400;
-		pork -> CurCost = 300
+	CurCost = case Item of 
+		apple -> 100;
+		pear -> 150;
+		milk -> 70;
+		beef -> 400;
+		pork -> 300
 	end,
 	CurCost * Count + cost(T).
